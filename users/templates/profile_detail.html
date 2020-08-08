@@ -1,0 +1,24 @@
+{% extends "edit_profile.html" %}
+
+{% block titlename %} {{object.first_name}} {{object.last_name}} {% endblock titlename %}
+
+{% block content %}
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h1> {{object.username}} </h1>
+          {% if following == 0 %}
+          <button class="btn btn-primary "><a href="{% url 'create-request' pk %}">Follow</button>
+          {% elif following == 1 %}
+          <button class="btn btn-primary "><a href="{% url 'remove-follower' pk %}">Unfollow</a></button>
+          {% elif following == 3 %}
+          <p>Follow request already sent</p>
+          {% elif following == 2 %}
+          <p>Follow request received.<a href="{% url "notifications" user.pk %}" > View </a></p>
+          {% endif %}
+        <h3> Name: {{object.first_name}} {{object.last_name}} </h3>
+        <h3> Email Id: {{object.email_id}} </h3>
+      </div>
+    </div>
+  </div>
+{% endblock content %}

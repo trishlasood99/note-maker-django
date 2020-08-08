@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block titlename %} Sign Up {% endblock titlename %}
+
+{% block cssfile %}
+  {% load static %}
+  <link rel="stylesheet" href="{% static "css\signup_style.css" %}">
+{% endblock cssfile %}
+{% block activated %}
+  <ul class="nav navbar-nav mr-auto mt-2 mt-lg-0">
+    <li class="nav-item">
+    <a class="nav-link" href="{% url "home" %}">Home</a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link" href="{% url "about" %}">About</a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link" href="{% url "contact" %}">Contact</a>
+    </li>
+    {% if user.is_authenticated %}
+    <li class="nav-item">
+    <a class="nav-link" href="{% url "dashboard" user.pk %}">Dashboard</a>
+    </li>
+    {% endif %}
+  </ul>
+{% endblock activated %}
+
+{% block content %}
+<div class="container" id="signuppopup">
+    <div class="row">
+      <div class="col" id="form_side">
+          {% block second-content %}
+          <center><h1> <b>SIGN UP</b></h1></center>
+          <center><h5> Absolutely Free</h5></center>
+          <br/><br/>
+          <!--<form>
+            <div class="form-row">
+            <div class="form-group col">
+              <label> First Name </label><br\>
+              <input type="text" name="" value="">
+            </div>
+            <div class="form-group col">
+              <label> Last Name </label><br\>
+              <input type="text" name="" value="">
+            </div>
+            </div>
+            <div class="form-group">
+              <label> Email Id </label><br\>
+              <input type="email" name="" value="" placeholder="email@example.com">
+            </div>
+            <div class="form-group">
+              <label> Password </label><br\>
+              <input type="password" name="" value="" placeholder="Password">
+            </div>
+            <div class="form-group">
+              <label> Confirm Password </label><br\>
+              <input type="password" name="">
+            </div>
+
+            <br/><br/>
+            <center><button type="button" class="btn btn-primary"><a href="signuppage.html">Submit</a></button></center>
+          </form>-->
+
+          <form action="" method="post">
+            {% csrf_token %}
+            {{form.non_field_errors}}
+            {% for field in form %}
+                <div class="form-group">
+                    {{ field.errors }}
+                    {{ field.label_tag }} <br/>{{ field }}
+                </div>
+            {% endfor %}
+            <center><button type="submit" class="btn btn-primary">Submit</button></center>
+          </form>
+          {% endblock second-content %}
+      </div>
+      <div class="col" id="other_side">
+        <img src="{% static "image.png" %}" class="center" id="bg-img"/>
+      </div>
+    </div>
+
+  </div>
+
+{% endblock content %}

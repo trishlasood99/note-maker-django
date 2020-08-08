@@ -1,0 +1,18 @@
+{% extends "profile_detail.html" %}
+{% block titlename %} Search Results {% endblock titlename %}
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h1> Displaying results for {{search_words}} </h1>
+      {% for obj in object_list %}
+        <h3><a href="{% url "view-profile" pk=obj.pk %}"> {{obj.username }} </a> </h3>
+      {% empty %}
+        <p> No search results to display </p>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

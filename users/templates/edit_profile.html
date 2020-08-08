@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block titlename %} Edit Profile {% endblock titlename %}
+
+{% block cssfile %}
+  {% load static %}
+  <link rel="stylesheet" href="{% static "css\profile_style.css" %}">
+{% endblock cssfile %}
+{% block activated %}
+  <ul class="nav navbar-nav mr-auto mt-2 mt-lg-0">
+    <li class="nav-item">
+    <a class="nav-link" href="{% url "home" %}">Home</a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link" href="{% url "about" %}">About</a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link" href="{% url "contact" %}">Contact</a>
+    </li>
+    {% if user.is_authenticated %}
+    <li class="nav-item active">
+    <a class="nav-link" href="{% url "dashboard" user.pk %}">Dashboard</a>
+    </li>
+    {% endif %}
+  </ul>
+{% endblock activated %}
+  {% block content %}
+    <div class="container">
+        <div class="row">
+          <div class="col-3 side-menu">
+            <ul class="list-group">
+              <li class="list-group-item active"><a href="{% url "edit-profile" pk=user.pk %}">Edit Profile</a></li>
+              <li class="list-group-item"><a href="{% url "forgot_password" %}">Change Password</a></li>
+              <li class="list-group-item"><a href="{% url "notifications" pk=user.pk %}" >Notifications</a></li>
+              <li class="list-group-item"><a href="{% url "dashboard" pk=user.pk %}">Dashboard</a></li>
+            </ul>
+          </div>
+          <div class="col">
+            <form action="" method="post">
+              {% csrf_token %}
+              {{form.non_field_errors}}
+              {% for field in form %}
+                  <div class="form-group">
+                      {{ field.errors }}
+                      {{ field.label_tag }} <br/>{{ field }}
+                  </div>
+              {% endfor %}
+              <center><button type="submit" class="btn btn-primary">Submit</button></center>
+            </form>
+          </div>
+        </div>
+    </div>
+  {% endblock content %}
