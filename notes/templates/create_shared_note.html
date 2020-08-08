@@ -1,0 +1,26 @@
+{% extends "dashboard.html" %}
+{% block secondary-content %}
+  <div class="col-12">
+    <div class="note">
+      <form action="" method="post">
+        <!--<input type="text" class="note_title" placeholder="Untitled">-->
+        <!--<textarea class="note_contents" rows="20" cols="46">Note</textarea>-->
+        {% csrf_token %}
+        <div class="note_title">
+          {{form.title.errors}}
+          {{form.title}}
+        </div>
+        <div class="note_title">
+          <p>Other users:</p>
+          {{form.users.errors}}
+          {{form.users}}
+        </div>
+        <div class="note_contents">
+          {{form.contents.errors}}
+          {{form.contents}}
+        </div>
+        <center><button type="submit" class="btn btn-primary">Submit</button></center>
+      </form>
+    </div>
+  </div>
+{% endblock %}

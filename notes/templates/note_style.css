@@ -1,0 +1,28 @@
+.note{
+  background-color: #66d9ff;
+  padding:30px;
+  width:350px;
+  height:350px;
+  box-shadow: 2px 2px 5px;
+}
+
+.note_title{
+  background: inherit;
+  border: 0px;
+  font: 400 20px Arial;
+}
+
+.note_contents{
+  background:inherit;
+  border:0px;
+  resize:none;
+}
+
+.note_contents:active{
+  border:0px;
+}
+
+.panel img{
+  height:20px;
+  width:20px;
+}
