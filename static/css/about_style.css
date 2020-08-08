@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Sans:400,700,700i&display=swap');
+
+
+body{
+  background-color: #eee2dc;
+  font-family: 'PT Sans', sans-serif;
+  font-size:20px;
+}
+.top-strip{
+  background-color: #123c69;
+  color: #ac3b61;
+}
+
+footer{
+  position:absolute;
+  bottom:-80px;
+  width:100%;
+}
+
+.bottom-strip{
+  background-color: #123c69;
+  padding-top:5px;
+  padding-bottom:5px;
+  color:#fff;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #ac3b61;
+  border-color: #ac3b61;
+}
+.brand-name{
+  font-size: 40px;
+  font-weight: 700;
+  margin-left:10%;
+  padding-top:10px;
+  width:60%;
+
+}
+
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: #722740;
+  border-color: #722740;
+}
+.bts{
+  position:absolute;
+  right:25px;
+  top:25px;
+}
+.btn-primary:focus, .btn-primary.focus {
+  color: #fff;
+  background-color: #722740;
+  border-color: 722740;
+  box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+}
+.btn a, .btn a:hover{
+  color:#fff;
+  text-decoration: none;
+}
+
+
+
+.navbar-dark{
+  background-color: #123c69;
+
+}
+.container{
+  padding-top: 100px !important;
+}

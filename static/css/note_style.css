@@ -1,0 +1,68 @@
+.note{
+  position:relative;
+  background-color: #66d9ff;
+  padding:30px;
+  margin-top:10px;
+  margin-bottom:10px;
+  width:350px;
+  height:350px;
+  box-shadow: 2px 2px 5px;
+}
+
+a {
+  text-decoration: none;
+}
+a:hover{
+  text-decoration: none;
+}
+.note_title input{
+  background: inherit;
+  border: 0px;
+  font: 400 20px Arial;
+}
+
+.note_contents textarea{
+  background:inherit;
+  border:0px;
+  resize:none;
+}
+
+.note_contents textarea:active{
+  border:0px;
+}
+.panel {
+  position: absolute;
+  font-size: 15px;
+  top: 10px;
+  right: 25px
+}
+
+.panel img{
+  height:20px;
+  width:20px;
+}
+
+.customCheckbox input{
+  position:relative;
+  z-index:-9999;
+}
+.customCheckbox span{
+  width:20px;
+  height:20px;
+  display:block;
+  background:url("{% static "favourite-false-icon.png" %}")
+}
+.customCheckbox input:checked+span{
+  background:url("{% static "favourite-true-icon.png" %}")
+}
+#dropdownMenuButton{
+  margin-left: 55%;
+}
+
+.title {
+  width:inherit;
+}
+
+.contents{
+  width:inherit;
+}

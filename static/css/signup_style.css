@@ -1,0 +1,118 @@
+
+@import url('https://fonts.googleapis.com/css?family=PT+Sans:400,700,700i&display=swap');
+
+
+body{
+  background-color: #5f2135;
+  font-family: 'PT Sans', sans-serif;
+  font-size:20px;
+}
+.top-strip{
+  background-color: #123c69;
+  color: #ac3b61;
+}
+
+footer{
+  position:absolute;
+  bottom:-250px;
+  width:100%;
+}
+
+.bottom-strip{
+  background-color: #123c69;
+  padding-top:5px;
+  padding-bottom:5px;
+  color:#fff;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #ac3b61;
+  border-color: #ac3b61;
+}
+.brand-name{
+  font-size: 40px;
+  font-weight: 700;
+  margin-left:10%;
+  padding-top:10px;
+  width:60%;
+
+}
+
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: #722740;
+  border-color: #722740;
+}
+.bts{
+  position:absolute;
+  right:25px;
+  top:25px;
+}
+.btn-primary:focus, .btn-primary.focus {
+  color: #fff;
+  background-color: #722740;
+  border-color: 722740;
+  box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+}
+.btn a, .btn a:hover{
+  color:#fff;
+  text-decoration: none;
+}
+
+.carousel-caption {
+
+  bottom: calc(50vh - 100px);
+
+}
+
+.navbar-dark{
+  background-color: #123c69;
+
+}
+.carousel-caption {
+  position: absolute;
+  right: 15%;
+  bottom: 20px;
+  left: 15%;
+  z-index: 10;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: #fff;
+  text-align: center;
+}
+
+#carouselWithCaptions{
+  width:100%;
+}
+
+.carousel-caption h1{
+    color:#000;
+}
+#form_side{
+  background:#eee2dc;
+  padding:40px;
+}
+
+#other_side{
+  background: #123c69;
+  margin-left:0px;
+  height: inherit;
+  padding:0px;
+}
+#bg-img{
+  height:70%;
+}
+#signuppopup{
+  margin-top:40px;
+  box-shadow: 2px 2px 10px;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top:30%;
+  width: 100%;
+}
