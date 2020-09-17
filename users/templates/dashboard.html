@@ -50,15 +50,16 @@
 
         </div>
         {% block secondary-content %}
+        {% load markdown_deux_tags %}
         <div class="col">
           {% for obj in object_list %}
 
 
                 <div class="note">
-                  <div class="panel">{% load static %}<a href="{% url "delete-note" pk2=obj.pk pk1=user.pk %}"><img src="{% static "delete_icon.png" %}" /></a> &nbsp; {{obj.last_modified}}</div> <!-- consider adding the favourites icon -->
+                  <div class="panel">{% load static %}<a href = "{% url "get-pdf" obj.pk %}">Download PDF</a> . <a href="{% url "delete-note" pk2=obj.pk pk1=user.pk %}"><img src="{% static "delete_icon.png" %}" /></a> &nbsp; {{obj.last_modified}}</div> <!-- consider adding the favourites icon -->
                 <a href="{% url "edit-note" pk2=obj.pk pk1=user.pk %}">
                   <div class="title"><b>{{obj.title}}</b></div>
-                  <div class="contents">{{obj.contents}}</div>
+                  <div class="contents">{{obj.contents|markdown}}</div>
                 </div></a>
               {% empty%}
               <p> No notes yet..</p>
@@ -68,16 +69,16 @@
           {% for obj in shared_notes %}
 
                 <div class="note">
-                  <div class="panel"><a href="{% url "delete-shared-note" pk2=obj.pk pk1=user.pk %}"><img src="{% static "delete_icon.png" %}" /></a> &nbsp; {{obj.last_modified}}</div> <!-- consider adding the favourites icon -->
+                  <div class="panel"><a href = "{% url "get-shared-pdf" obj.pk %}">Download PDF</a><a href="{% url "delete-shared-note" pk2=obj.pk pk1=user.pk %}"><img src="{% static "delete_icon.png" %}" /></a> &nbsp; {{obj.last_modified}}</div> <!-- consider adding the favourites icon -->
               <a href="{% url "edit-shared-note" pk2=obj.pk pk1=user.pk %}">
                   <div class="title"><b>{{obj.title}}</b></div>
-                  <div class="contents">{{obj.contents}}</div>
+                  <div class="contents">{{obj.contents|markdown}}</div>
                 </div>
               </a>
           {% empty%}
             <p> No notes yet..</p>
           {% endfor%}
       </div>
-      {% endblock %}
+      {% endblock secondary-content %}
   </div>
 {% endblock content %}
