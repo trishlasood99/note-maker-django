@@ -89,7 +89,7 @@ class DashboardView(LoginRequiredMixin,UserPassesTestMixin,ListView):
     def get_context_data(self,**kwargs):
         context=super().get_context_data(**kwargs)
         cquery=Q(created_by=self.request.user)
-        context['shared_notes']=(SharedNote.objects.filter(cquery))
+        context['shared_notes']=list(SharedNote.objects.filter(cquery))
         for x in SharedNote.objects.all():
             if self.request.user in x.users.all():
                 context['shared_notes'].append(x)

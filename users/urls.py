@@ -1,7 +1,7 @@
 from django.urls import path
 from .views import DeactivateAccountView,signup_view,EditProfileView,SignUpSuccessView,UserLoginView,DashboardView,ProfileDetailView,SearchView,AddFollower,RemoveFollower,DeleteRequest,NotificationsView,CreateRequest,PasswordResetView,ForgotPasswordView,PasswordChangeSuccessView,WrongAnswerView
 from django.contrib.auth.views import LogoutView
-from notes.views import NoteCreateView,NoteEditView,SharedNoteCreateView, SharedNoteEditView, SharedNoteDeleteView, NoteDeleteView
+from notes.views import NoteCreateView,NoteEditView,SharedNoteCreateView, SharedNoteEditView, SharedNoteDeleteView, NoteDeleteView, generate_pdf, generate_shared_pdf
 
 urlpatterns =[
     path('sign_up',signup_view,name='signup'),
@@ -29,4 +29,6 @@ urlpatterns =[
     path('dashboard/<int:pk1>/delete_shared_note/<int:pk2>',SharedNoteDeleteView.as_view(),name='delete-shared-note'),
     path('dashboard/<int:pk1>/delete_note/<int:pk2>',NoteDeleteView.as_view(),name='delete-note'),
     path('delete_user/<int:pk>',DeactivateAccountView.as_view(),name='delete-account'),
+    path('get_note_pdf/<int:pk>',generate_pdf,name='get-pdf'),
+    path('get_shared_note_pdf/<int:pk>',generate_shared_pdf,name='get-shared-pdf'),
 ]
