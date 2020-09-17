@@ -18,6 +18,15 @@
   resize:none;
 }
 
+.contents {
+  width: 325px;
+}
+
+p {
+  width: 325px;
+  overflow-wrap: anywhere;
+}
+
 .note_contents:active{
   border:0px;
 }
